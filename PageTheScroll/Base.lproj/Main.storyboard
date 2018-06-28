@@ -34,9 +34,11 @@
                                     <constraint firstAttribute="height" constant="190" id="fSf-rY-qNq"/>
                                 </constraints>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WwR-VR-qjN">
-                                <rect key="frame" x="67" y="269" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qx9-OM-BGF">
+                                <rect key="frame" x="77.5" y="20" width="220" height="647"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="cd3-V0-fBV"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -44,8 +46,12 @@
                             <constraint firstItem="pbs-Gb-L5Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="73z-2U-KZC"/>
                             <constraint firstItem="Vcd-iJ-BqG" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="RJl-An-oAs"/>
                             <constraint firstItem="Vcd-iJ-BqG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Raj-m2-BYI"/>
+                            <constraint firstItem="Qx9-OM-BGF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="W1L-vB-bZ4"/>
+                            <constraint firstItem="Qx9-OM-BGF" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="a0F-J3-Uhp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0f6-IR-rcx" secondAttribute="trailing" id="aGz-E0-iLu"/>
                             <constraint firstItem="pbs-Gb-L5Z" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="aTk-Go-AeD"/>
+                            <constraint firstItem="Qx9-OM-BGF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dvm-M9-AlW"/>
+                            <constraint firstItem="Qx9-OM-BGF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="huC-6s-3jj"/>
                             <constraint firstItem="Vcd-iJ-BqG" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="mcF-SB-Js2"/>
                             <constraint firstItem="pbs-Gb-L5Z" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="r9i-ml-aPr"/>
                             <constraint firstItem="Vcd-iJ-BqG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="roK-kl-8y3"/>
@@ -53,10 +59,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="scrollView" destination="Qx9-OM-BGF" id="xL2-w0-KWn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-23.199999999999999" y="133.5832083958021"/>
+            <point key="canvasLocation" x="-24.375" y="133.09859154929578"/>
         </scene>
     </scenes>
     <resources>
