@@ -8,41 +8,53 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
   
-    @IBOutlet weak var scrollView: UIScrollView!
+
+    @IBOutlet weak var imageView: UIImageView!
     
-    var images = [UIImageView]()
-   
+    let imageNames = ["icon0.png","icon1.png","icon2.png"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var contentWidth: CGFloat = 0.0
         
-        for x in 0...2 {
-            
-            let image = UIImage(named: "icon\(x).png")
-            let imageView = UIImageView(image: image)
-          
-            images.append(imageView)
-            
-            var newX: CGFloat = 0.0
-            
-            newX = view.frame.midX + view.frame.size.width * CGFloat(x)
-            contentWidth += newX
-            scrollView.addSubview(imageView)
-            imageView.frame = CGRect(x: newX - 75, y: (view.frame.size.height / 2) - 75, width: 150, height: 150)
-
-        }
-        scrollView.clipsToBounds = false
-        scrollView.contentSize = CGSize(width: contentWidth, height: view.frame.size.height)
+        let swipeLeftGesture=UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(gesture:)))
+        imageView.isUserInteractionEnabled = true
+        swipeLeftGesture.direction = UISwipeGestureRecognizerDirection.left
+        imageView.addGestureRecognizer(swipeLeftGesture)
         
-        
+        let swipeRightGesture=UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(gesture:)))
+        swipeRightGesture.direction = UISwipeGestureRecognizerDirection.right
+        imageView.addGestureRecognizer(swipeRightGesture)
     }
-
-   
-
-
+    
+    var currentImage = 0
+    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            
+            
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.left:
+                if currentImage == imageNames.count - 1 {
+                    currentImage = 0
+                    
+                } else {
+                    currentImage += 1
+                }
+                imageView.image = UIImage(named: imageNames[currentImage])
+                
+            case UISwipeGestureRecognizerDirection.right:
+                if currentImage == 0 {
+                    currentImage = imageNames.count - 1
+                } else {
+                    currentImage -= 1
+                }
+                imageView.image = UIImage(named: imageNames[currentImage])
+            default:
+                break
+            }
+        }
 }
-
+}
